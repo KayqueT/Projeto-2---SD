@@ -132,3 +132,4 @@ DESLIGADO ──[LIGAR solto]──► OCIOSO
                             EXIBE ──► OCIOSO
                          (atualiza LCD)
 ```
+---
