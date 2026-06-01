@@ -1,7 +1,13 @@
 # Mini‑CPU
 ### Projeto 2 – SD | CIn UFPE | 2026.1
 
-## Visão Geral da Arquitetura
+## Grupo:
+* 
+* 
+* 
+* Kayque Tavares Marcelino da Costa (ktmc)
+  
+## Projeto
 
 ```
           ┌─────────────────────────────────────────┐
