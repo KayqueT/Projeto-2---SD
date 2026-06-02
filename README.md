@@ -81,11 +81,6 @@ instantaneamente após mudar as entradas.
 
 **O que faz:** inicializa o display e escreve a operação + resultado nas 2 linhas.
 
-**Sequência de inicialização (automática ao ligar):**
-```
-Function Set (0x38) → Display ON (0x0C) → Entry Mode (0x06) → Clear (0x01)
-```
-
 **Layout do LCD após cada instrução:**
 
 ```
