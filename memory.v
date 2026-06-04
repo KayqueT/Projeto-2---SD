@@ -22,7 +22,7 @@ module memory (
     // Sync read and write
     always @(posedge clk) begin
         if (rst && write_enable) begin
-            for (i = 0; i < NUM_REG; i + 1) begin
+            for (i = 0; i < NUM_REG; i = i + 1) begin
                 ram[i] <= 16'h0000;
             end
 
