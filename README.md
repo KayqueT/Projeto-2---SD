@@ -4,7 +4,7 @@
 ## Grupo:
 * 
 * 
-* 
+* Victor Amorim Padilha (vap4)
 * Kayque Tavares Marcelino da Costa (ktmc)
   
 ## Projeto
