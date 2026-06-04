@@ -170,7 +170,7 @@ module control_unit (
                         opcode <= instruction[`IMM_OPCODE];
                         dst    <= instruction[`IMM_DST];
                         src0   <= instruction[`IMM_SRC0];
-                        imm    <= signal_extension(instruction[`SIG], instruction[`IMM]);
+                        imm    <= signal_extension(instruction[`SGN], instruction[`IMM]);
                     end 
 
                     else if (instruction[`REG_OPCODE] == ADD ||
@@ -186,7 +186,7 @@ module control_unit (
                     begin
                         opcode <= instruction[`LOAD_OPCODE];
                         dst    <= instruction[`LOAD_DST];
-                        imm    <= signal_extension(instruction[`SIG], instruction[`IMM]);
+                        imm    <= signal_extension(instruction[`SGN], instruction[`IMM]);
                     end
 
                     else if (instruction[`OUT_OPCODE] == CLEAR ||
