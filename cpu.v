@@ -24,13 +24,6 @@ module cpu (
     wire [3:0]  src1;
     wire [15:0] imm;
 
-    // --- Arithmetic and Logic Unit ---
-
-    wire [15:0] alu_data_in;
-    wire [15:0] alu_data_out;
-    
-    assign alu_data_in = (alu_imm) ? imm : read_data1; // Verify if the data comes from reg or imm
-
     // ----------- Memory --------------
     
     wire [15:0] mem_data_in;
@@ -38,7 +31,13 @@ module cpu (
     wire [15:0] read_data0;
     wire [15:0] read_data1;
 
+    // --- Arithmetic and Logic Unit ---
+
+    wire [15:0] alu_data_in;
+    wire [15:0] alu_data_out;
+    
     assign mem_data_in = (mem_imm) ? imm : alu_data_out; // Verify if the data comes from ALU or imm
+    assign alu_data_in = (alu_imm) ? imm : read_data1; // Verify if the data comes from reg or imm
 
     control_unit cu0 (
         .clk(clk),
