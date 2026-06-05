@@ -7,7 +7,7 @@ module control_unit (
     input wire [17:0]    switch_bus,
 
     // Control outputs
-    output reg                clear, // rst memory
+    output reg            clear_mem, // rst memory
     output reg         write_enable,
     output reg          read_enable,
     output reg           alu_enable,
@@ -64,7 +64,7 @@ module control_unit (
         read_enable     = 0;
         alu_enable      = 0;
         lcd_enable      = 0;
-        clear           = 0;
+        clear_mem       = 0;
         alu_imm         = 0;
         mem_imm         = 0;
 
@@ -78,14 +78,14 @@ module control_unit (
             
             INIT: begin
                 write_enable = 1;
-                clear        = 1;
+                clear_mem    = 1;
                 lcd_enable   = 1;
             end
 
             IDLE: begin
                 write_enable = 0;
                 read_enable  = 0;
-                clear        = 0;
+                clear_mem    = 0;
                 alu_enable   = 0;
             end
 
@@ -103,8 +103,8 @@ module control_unit (
 
             // Execution depends on the instruction
             EXECUTE: begin
-                if (opcode == CLEAR) clear = 1;
-                //else if (opcode == DISPLAY) 
+                if (opcode == CLEAR) clear_mem = 1;
+                //else if (opcode == DISPLAY) read_enable = 1;
                 else if (opcode != LOAD) begin 
                     if (opcode == ADDI ||
                         opcode == SUBI ||
