@@ -60,6 +60,8 @@ module cpu (
     assign lcd = lcd_enable;
 
     always @(*) begin
+        alu_opcode = 0;
+
         if (opcode == ADD ||
             opcode == ADDI)
         begin
@@ -79,6 +81,8 @@ module cpu (
     end
 
     always @(*) begin
+        out = 0;
+
         if (opcode == LOAD) out = imm;
         else if (opcode == DISPLAY) out = read_data0;
         else if (opcode != CLEAR) out = alu_data_out;
@@ -119,7 +123,7 @@ module cpu (
     );
 
     arithmetic_logic_unit alu0 (
-        .opcode(opcode),
+        .opcode(alu_opcode),
         .a(read_data0),
         .b(alu_data_in),
 

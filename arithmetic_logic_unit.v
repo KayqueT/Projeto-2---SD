@@ -1,12 +1,11 @@
 module arithmetic_logic_unit (
-    input wire        [2:0]  opcode,
+    input wire        [1:0]  opcode,
     input wire signed [15:0]      a,
     input wire signed [15:0]      b,
 
     output reg signed [15:0]    out
 );
 
-    // FIX: Memory still not decode the opcode from control unit
     localparam [1:0]
         ADD = 2'b00,
         SUB = 2'b01,
