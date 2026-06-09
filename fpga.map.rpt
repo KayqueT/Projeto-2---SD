@@ -1,0 +1,767 @@
+Analysis & Synthesis report for fpga
+Mon Jun  8 17:36:38 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |mini_cpu_fpga|lcd_controller:lcd_ctl0|estado_atual
+ 10. State Machine - |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0
+ 15. lpm_mult Parameter Settings by Entity Instance
+ 16. Port Connectivity Checks: "cpu:cpu0|control_unit:cu0"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun  8 17:36:38 2026           ;
+; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                      ; fpga                                            ;
+; Top-level Entity Name              ; mini_cpu_fpga                                   ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 1,257                                           ;
+;     Total combinational functions  ; 1,006                                           ;
+;     Dedicated logic registers      ; 483                                             ;
+; Total registers                    ; 483                                             ;
+; Total pins                         ; 32                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 2                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; mini_cpu_fpga      ; fpga               ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; mini_cpu_fpga.v                  ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v           ;         ;
+; button_handler.v                 ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/button_handler.v          ;         ;
+; cpu.v                            ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/cpu.v                     ;         ;
+; control_unit.v                   ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/control_unit.v            ;         ;
+; memory.v                         ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/memory.v                  ;         ;
+; arithmetic_logic_unit.v          ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/arithmetic_logic_unit.v   ;         ;
+; lcd_controller.v                 ; yes             ; Auto-Found Verilog HDL File  ; /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v          ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal251.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/aglobal251.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA/25.1/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_36t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/loki0b/eecs/projects/Projeto-2---SD/db/mult_36t.tdf           ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,257     ;
+;                                             ;           ;
+; Total combinational functions               ; 1006      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 672       ;
+;     -- 3 input functions                    ; 168       ;
+;     -- <=2 input functions                  ; 166       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 897       ;
+;     -- arithmetic mode                      ; 109       ;
+;                                             ;           ;
+; Total registers                             ; 483       ;
+;     -- Dedicated logic registers            ; 483       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 32        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 2         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 483       ;
+; Total fan-out                               ; 5160      ;
+; Average fan-out                             ; 3.32      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                 ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name           ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |mini_cpu_fpga                        ; 1006 (0)            ; 483 (0)                   ; 0           ; 2            ; 0       ; 1         ; 32   ; 0            ; |mini_cpu_fpga                                                                            ; mini_cpu_fpga         ; work         ;
+;    |button_handler:btn0|              ; 45 (45)             ; 37 (37)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mini_cpu_fpga|button_handler:btn0                                                        ; button_handler        ; work         ;
+;    |button_handler:btn1|              ; 46 (46)             ; 37 (37)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mini_cpu_fpga|button_handler:btn1                                                        ; button_handler        ; work         ;
+;    |cpu:cpu0|                         ; 612 (67)            ; 336 (0)                   ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0                                                                   ; cpu                   ; work         ;
+;       |arithmetic_logic_unit:alu0|    ; 33 (33)             ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0|arithmetic_logic_unit:alu0                                        ; arithmetic_logic_unit ; work         ;
+;          |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0                         ; lpm_mult              ; work         ;
+;             |mult_36t:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0|mult_36t:auto_generated ; mult_36t              ; work         ;
+;       |control_unit:cu0|              ; 135 (135)           ; 48 (48)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0|control_unit:cu0                                                  ; control_unit          ; work         ;
+;       |memory:mem0|                   ; 377 (377)           ; 288 (288)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mini_cpu_fpga|cpu:cpu0|memory:mem0                                                       ; memory                ; work         ;
+;    |lcd_controller:lcd_ctl0|          ; 303 (303)           ; 73 (73)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mini_cpu_fpga|lcd_controller:lcd_ctl0                                                    ; lcd_controller        ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |mini_cpu_fpga|lcd_controller:lcd_ctl0|estado_atual                                                                                                                                                                                                                                                                              ;
++-----------------------------+----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+; Name                        ; estado_atual.EST_DESLIGADO ; estado_atual.EST_ESCREVE_L2 ; estado_atual.EST_LINHA2_POS ; estado_atual.EST_ESCREVE_L1 ; estado_atual.EST_LINHA1_POS ; estado_atual.EST_INIT_4 ; estado_atual.EST_INIT_3 ; estado_atual.EST_INIT_2 ; estado_atual.EST_OCIOSO ; estado_atual.EST_ESPERA_CPU ; estado_atual.EST_INIT_1 ;
++-----------------------------+----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+; estado_atual.EST_INIT_1     ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                       ;
+; estado_atual.EST_ESPERA_CPU ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 1                           ; 1                       ;
+; estado_atual.EST_OCIOSO     ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 1                       ; 0                           ; 1                       ;
+; estado_atual.EST_INIT_2     ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 1                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_INIT_3     ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 1                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_INIT_4     ; 0                          ; 0                           ; 0                           ; 0                           ; 0                           ; 1                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_LINHA1_POS ; 0                          ; 0                           ; 0                           ; 0                           ; 1                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_ESCREVE_L1 ; 0                          ; 0                           ; 0                           ; 1                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_LINHA2_POS ; 0                          ; 0                           ; 1                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_ESCREVE_L2 ; 0                          ; 1                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
+; estado_atual.EST_DESLIGADO  ; 1                          ; 0                           ; 0                           ; 0                           ; 0                           ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                       ;
++-----------------------------+----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|state                                                              ;
++---------------+-------------+---------------+------------+--------------+-------------+------------+------------+-----------+
+; Name          ; state.STORE ; state.EXECUTE ; state.READ ; state.DECODE ; state.FETCH ; state.IDLE ; state.INIT ; state.OFF ;
++---------------+-------------+---------------+------------+--------------+-------------+------------+------------+-----------+
+; state.OFF     ; 0           ; 0             ; 0          ; 0            ; 0           ; 0          ; 0          ; 0         ;
+; state.INIT    ; 0           ; 0             ; 0          ; 0            ; 0           ; 0          ; 1          ; 1         ;
+; state.IDLE    ; 0           ; 0             ; 0          ; 0            ; 0           ; 1          ; 0          ; 1         ;
+; state.FETCH   ; 0           ; 0             ; 0          ; 0            ; 1           ; 0          ; 0          ; 1         ;
+; state.DECODE  ; 0           ; 0             ; 0          ; 1            ; 0           ; 0          ; 0          ; 1         ;
+; state.READ    ; 0           ; 0             ; 1          ; 0            ; 0           ; 0          ; 0          ; 1         ;
+; state.EXECUTE ; 0           ; 1             ; 0          ; 0            ; 0           ; 0          ; 0          ; 1         ;
+; state.STORE   ; 1           ; 0             ; 0          ; 0            ; 0           ; 0          ; 0          ; 1         ;
++---------------+-------------+---------------+------------+--------------+-------------+------------+------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                     ;
++----------------------------------------------------+---------------------------------------------------+
+; Register name                                      ; Reason for Removal                                ;
++----------------------------------------------------+---------------------------------------------------+
+; lcd_controller:lcd_ctl0|linha1[0][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[1][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[2][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[3][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[3][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[3][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[4][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[5][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[6][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[6][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[7][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[8][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[9][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[10][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[11][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[11][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[12][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[13][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[14][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[15][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[0][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[0][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[0][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[0][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[1][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[1][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[1][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[2][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[2][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[2][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[3][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[3][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[3][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[4][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[4][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[4][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[5][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[5][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[5][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[6][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[7][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[8][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][7]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][6]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][5]               ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][4]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][3]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][2]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][1]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[9][0]               ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[10][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[11][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[12][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[13][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[14][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][7]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][6]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][5]              ; Stuck at VCC due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][4]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][3]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][2]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][1]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha2[15][0]              ; Stuck at GND due to stuck port data_in            ;
+; lcd_controller:lcd_ctl0|linha1[0][5]               ; Merged with lcd_controller:lcd_ctl0|linha1[1][5]  ;
+; lcd_controller:lcd_ctl0|linha1[1][5]               ; Merged with lcd_controller:lcd_ctl0|linha1[2][5]  ;
+; lcd_controller:lcd_ctl0|linha1[2][5]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][5]  ;
+; lcd_controller:lcd_ctl0|linha1[6][5]               ; Merged with lcd_controller:lcd_ctl0|linha1[11][5] ;
+; lcd_controller:lcd_ctl0|linha1[1][6]               ; Merged with lcd_controller:lcd_ctl0|linha1[2][6]  ;
+; lcd_controller:lcd_ctl0|linha1[2][6]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][6]  ;
+; lcd_controller:lcd_ctl0|linha1[6][6]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][4]  ;
+; lcd_controller:lcd_ctl0|linha1[6][4]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][3]  ;
+; lcd_controller:lcd_ctl0|linha1[6][3]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][1]  ;
+; lcd_controller:lcd_ctl0|linha1[6][1]               ; Merged with lcd_controller:lcd_ctl0|linha1[6][0]  ;
+; lcd_controller:lcd_ctl0|linha1[6][0]               ; Merged with lcd_controller:lcd_ctl0|linha1[7][4]  ;
+; lcd_controller:lcd_ctl0|linha1[7][4]               ; Merged with lcd_controller:lcd_ctl0|linha1[8][4]  ;
+; lcd_controller:lcd_ctl0|linha1[8][4]               ; Merged with lcd_controller:lcd_ctl0|linha1[0][6]  ;
+; lcd_controller:lcd_ctl0|linha1[0][6]               ; Merged with lcd_controller:lcd_ctl0|linha1[10][4] ;
+; lcd_controller:lcd_ctl0|linha1[10][4]              ; Merged with lcd_controller:lcd_ctl0|linha1[11][6] ;
+; lcd_controller:lcd_ctl0|linha1[11][6]              ; Merged with lcd_controller:lcd_ctl0|linha1[11][4] ;
+; lcd_controller:lcd_ctl0|linha1[11][4]              ; Merged with lcd_controller:lcd_ctl0|linha1[11][3] ;
+; lcd_controller:lcd_ctl0|linha1[11][3]              ; Merged with lcd_controller:lcd_ctl0|linha1[11][2] ;
+; lcd_controller:lcd_ctl0|linha1[11][2]              ; Merged with lcd_controller:lcd_ctl0|linha1[11][0] ;
+; lcd_controller:lcd_ctl0|linha1[11][0]              ; Merged with lcd_controller:lcd_ctl0|linha2[0][3]  ;
+; lcd_controller:lcd_ctl0|linha2[0][3]               ; Merged with lcd_controller:lcd_ctl0|linha2[0][0]  ;
+; lcd_controller:lcd_ctl0|linha2[0][0]               ; Merged with lcd_controller:lcd_ctl0|linha2[1][4]  ;
+; lcd_controller:lcd_ctl0|linha2[1][4]               ; Merged with lcd_controller:lcd_ctl0|linha2[2][4]  ;
+; lcd_controller:lcd_ctl0|linha2[2][4]               ; Merged with lcd_controller:lcd_ctl0|linha2[3][4]  ;
+; lcd_controller:lcd_ctl0|linha2[3][4]               ; Merged with lcd_controller:lcd_ctl0|linha2[4][4]  ;
+; lcd_controller:lcd_ctl0|linha2[4][4]               ; Merged with lcd_controller:lcd_ctl0|linha2[5][4]  ;
+; lcd_controller:lcd_ctl0|linha2[5][4]               ; Merged with lcd_controller:lcd_ctl0|linha1[9][4]  ;
+; lcd_controller:lcd_ctl0|linha1[2][1]               ; Merged with lcd_controller:lcd_ctl0|linha1[0][1]  ;
+; lcd_controller:lcd_ctl0|linha1[2][0]               ; Merged with lcd_controller:lcd_ctl0|linha1[1][1]  ;
+; lcd_controller:lcd_ctl0|linha1[3][2]               ; Merged with lcd_controller:lcd_ctl0|linha1[1][1]  ;
+; lcd_controller:lcd_ctl0|linha1[3][5]               ; Merged with lcd_controller:lcd_ctl0|linha1[3][6]  ;
+; lcd_controller:lcd_ctl0|linha1[3][0]               ; Merged with lcd_controller:lcd_ctl0|linha1[3][3]  ;
+; lcd_controller:lcd_ctl0|linha1[11][5]              ; Merged with lcd_controller:lcd_ctl0|linha1[9][4]  ;
+; cpu:cpu0|control_unit:cu0|imm[6..9,11..15]         ; Merged with cpu:cpu0|control_unit:cu0|imm[10]     ;
+; lcd_controller:lcd_ctl0|estado_atual~4             ; Lost fanout                                       ;
+; lcd_controller:lcd_ctl0|estado_atual~5             ; Lost fanout                                       ;
+; lcd_controller:lcd_ctl0|estado_atual~6             ; Lost fanout                                       ;
+; lcd_controller:lcd_ctl0|estado_atual~7             ; Lost fanout                                       ;
+; cpu:cpu0|control_unit:cu0|state~2                  ; Lost fanout                                       ;
+; cpu:cpu0|control_unit:cu0|state~3                  ; Lost fanout                                       ;
+; cpu:cpu0|control_unit:cu0|state~4                  ; Lost fanout                                       ;
+; lcd_controller:lcd_ctl0|estado_atual.EST_DESLIGADO ; Stuck at GND due to stuck port data_in            ;
+; Total Number of Removed Registers = 231            ;                                                   ;
++----------------------------------------------------+---------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 483   ;
+; Number of registers using Synchronous Clear  ; 114   ;
+; Number of registers using Synchronous Load   ; 40    ;
+; Number of registers using Asynchronous Clear ; 73    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 334   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |mini_cpu_fpga|lcd_controller:lcd_ctl0|reg_indice[3]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[0][1]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[1][3]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[2][15]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[3][13]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[4][5]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[5][1]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[6][7]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[7][6]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[8][1]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[9][9]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[10][0]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[11][13]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[12][10]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[13][0]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[14][13]          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|ram[15][4]           ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 176 LEs              ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|read_data1[12]       ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 176 LEs              ; 16 LEs                 ; Yes        ; |mini_cpu_fpga|cpu:cpu0|memory:mem0|read_data0[9]        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |mini_cpu_fpga|cpu:cpu0|arithmetic_logic_unit:alu0|Mux14 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|dst             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|src0            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |mini_cpu_fpga|cpu:cpu0|out[15]                          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|opcode          ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; No         ; |mini_cpu_fpga|lcd_controller:lcd_ctl0|Selector15        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+-------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                ;
++------------------------------------------------+--------------+-------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                      ;
+; LPM_WIDTHA                                     ; 16           ; Untyped                             ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                             ;
+; LPM_WIDTHP                                     ; 32           ; Untyped                             ;
+; LPM_WIDTHR                                     ; 32           ; Untyped                             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                             ;
+; LATENCY                                        ; 0            ; Untyped                             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                             ;
+; USE_EAB                                        ; OFF          ; Untyped                             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                 ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                             ;
+; CBXI_PARAMETER                                 ; mult_36t     ; Untyped                             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                             ;
++------------------------------------------------+--------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                             ;
++---------------------------------------+----------------------------------------------------+
+; Name                                  ; Value                                              ;
++---------------------------------------+----------------------------------------------------+
+; Number of entity instances            ; 1                                                  ;
+; Entity Instance                       ; cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                                 ;
+;     -- LPM_WIDTHB                     ; 16                                                 ;
+;     -- LPM_WIDTHP                     ; 32                                                 ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                             ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                 ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                 ;
+;     -- USE_EAB                        ; OFF                                                ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                               ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                 ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                 ;
++---------------------------------------+----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:cpu0|control_unit:cu0"                                                                ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; alu_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 32                          ;
+; cycloneiii_ff         ; 483                         ;
+;     CLR               ; 10                          ;
+;     CLR SCLR          ; 17                          ;
+;     ENA               ; 256                         ;
+;     ENA CLR           ; 46                          ;
+;     ENA SCLR          ; 32                          ;
+;     SCLR              ; 65                          ;
+;     SLD               ; 40                          ;
+;     plain             ; 17                          ;
+; cycloneiii_lcell_comb ; 1009                        ;
+;     arith             ; 109                         ;
+;         2 data inputs ; 93                          ;
+;         3 data inputs ; 16                          ;
+;     normal            ; 900                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 68                          ;
+;         3 data inputs ; 152                         ;
+;         4 data inputs ; 672                         ;
+; cycloneiii_mac_mult   ; 1                           ;
+; cycloneiii_mac_out    ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 22.50                       ;
+; Average LUT depth     ; 7.27                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Mon Jun  8 17:36:28 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off control-unit -c fpga
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (12125): Using design file mini_cpu_fpga.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: mini_cpu_fpga File: /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v Line: 1
+Info (12127): Elaborating entity "mini_cpu_fpga" for the top level hierarchy
+Warning (12125): Using design file button_handler.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: button_handler File: /home/loki0b/eecs/projects/Projeto-2---SD/button_handler.v Line: 1
+Info (12128): Elaborating entity "button_handler" for hierarchy "button_handler:btn0" File: /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v Line: 24
+Warning (12125): Using design file cpu.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: cpu File: /home/loki0b/eecs/projects/Projeto-2---SD/cpu.v Line: 1
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:cpu0" File: /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v Line: 42
+Warning (12125): Using design file control_unit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: control_unit File: /home/loki0b/eecs/projects/Projeto-2---SD/control_unit.v Line: 19
+Info (12128): Elaborating entity "control_unit" for hierarchy "cpu:cpu0|control_unit:cu0" File: /home/loki0b/eecs/projects/Projeto-2---SD/cpu.v Line: 106
+Warning (12125): Using design file memory.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: memory File: /home/loki0b/eecs/projects/Projeto-2---SD/memory.v Line: 1
+Info (12128): Elaborating entity "memory" for hierarchy "cpu:cpu0|memory:mem0" File: /home/loki0b/eecs/projects/Projeto-2---SD/cpu.v Line: 120
+Warning (12125): Using design file arithmetic_logic_unit.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: arithmetic_logic_unit File: /home/loki0b/eecs/projects/Projeto-2---SD/arithmetic_logic_unit.v Line: 1
+Info (12128): Elaborating entity "arithmetic_logic_unit" for hierarchy "cpu:cpu0|arithmetic_logic_unit:alu0" File: /home/loki0b/eecs/projects/Projeto-2---SD/cpu.v Line: 128
+Warning (12125): Using design file lcd_controller.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: lcd_controller File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 1
+Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:lcd_ctl0" File: /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v Line: 56
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(65): truncated value with size 32 to match size of target (4) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 65
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(66): truncated value with size 32 to match size of target (4) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 66
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(67): truncated value with size 32 to match size of target (4) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 67
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(68): truncated value with size 32 to match size of target (4) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 68
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(69): truncated value with size 32 to match size of target (4) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 69
+Warning (10230): Verilog HDL assignment warning at lcd_controller.v(140): truncated value with size 32 to match size of target (17) File: /home/loki0b/eecs/projects/Projeto-2---SD/lcd_controller.v Line: 140
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "cpu:cpu0|arithmetic_logic_unit:alu0|Mult0" File: /home/loki0b/eecs/projects/Projeto-2---SD/arithmetic_logic_unit.v Line: 18
+Info (12130): Elaborated megafunction instantiation "cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0" File: /home/loki0b/eecs/projects/Projeto-2---SD/arithmetic_logic_unit.v Line: 18
+Info (12133): Instantiated megafunction "cpu:cpu0|arithmetic_logic_unit:alu0|lpm_mult:Mult0" with the following parameter: File: /home/loki0b/eecs/projects/Projeto-2---SD/arithmetic_logic_unit.v Line: 18
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_36t.tdf
+    Info (12023): Found entity 1: mult_36t File: /home/loki0b/eecs/projects/Projeto-2---SD/db/mult_36t.tdf Line: 29
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND File: /home/loki0b/eecs/projects/Projeto-2---SD/mini_cpu_fpga.v Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/loki0b/eecs/projects/Projeto-2---SD/fpga.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1322 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 1288 logic cells
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 429 megabytes
+    Info: Processing ended: Mon Jun  8 17:36:38 2026
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:26
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/loki0b/eecs/projects/Projeto-2---SD/fpga.map.smsg.
+
+

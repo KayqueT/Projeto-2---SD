@@ -1,0 +1,450 @@
+# do fpga_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /opt/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:14:11 on Jun 06,2026
+# vlog -reportprogress 300 -work work "+incdir+/home/loki0b/eecs/projects/control-unit" /home/loki0b/eecs/projects/control-unit/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 05:14:12 on Jun 06,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/lcd_controller.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:14:12 on Jun 06,2026
+# vlog -reportprogress 300 -work work "+incdir+/home/loki0b/eecs/projects/control-unit" /home/loki0b/eecs/projects/control-unit/lcd_controller.v 
+# -- Compiling module lcd_controller
+# 
+# Top level modules:
+# 	lcd_controller
+# End time: 05:14:12 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/fpga.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:14:12 on Jun 06,2026
+# vlog -reportprogress 300 -work work "+incdir+/home/loki0b/eecs/projects/control-unit" /home/loki0b/eecs/projects/control-unit/fpga.v 
+# -- Compiling module fpga
+# 
+# Top level modules:
+# 	fpga
+# End time: 05:14:12 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/cpu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:14:12 on Jun 06,2026
+# vlog -reportprogress 300 -work work "+incdir+/home/loki0b/eecs/projects/control-unit" /home/loki0b/eecs/projects/control-unit/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 05:14:12 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/control_unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:14:12 on Jun 06,2026
+# vlog -reportprogress 300 -work work "+incdir+/home/loki0b/eecs/projects/control-unit" /home/loki0b/eecs/projects/control-unit/control_unit.v 
+# -- Compiling module control_unit
+# ** Error: /home/loki0b/eecs/projects/control-unit/control_unit.v(194): A begin/end block was found with an empty body.  This is permitted in SystemVerilog, but not permitted in Verilog.  Please look for any stray semicolons.
+# End time: 05:14:12 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /opt/intelFPGA/20.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./fpga_run_msim_rtl_verilog.do line 12
+# /opt/intelFPGA/20.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog  -work work +incdir+/home/loki0b/eecs/projects/control-unit {/home/loki0b/eecs/projects/control-unit/control_unit.v}"
+# 
+# stdin: <EOF>
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# -- Compiling module fpga_tb
+# 
+# Top level modules:
+# 	fpga_tb
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v 
+# -- Compiling module fpga
+# 
+# Top level modules:
+# 	fpga
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v 
+# -- Compiling module button_handler
+# 
+# Top level modules:
+# 	button_handler
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v 
+# -- Compiling module arithmetic_logic_unit
+# 
+# Top level modules:
+# 	arithmetic_logic_unit
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v 
+# -- Compiling module lcd_controller
+# 
+# Top level modules:
+# 	lcd_controller
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:00 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v 
+# -- Compiling module control_unit
+# ** Error: /home/loki0b/eecs/projects/control-unit/control_unit.v(194): A begin/end block was found with an empty body.  This is permitted in SystemVerilog, but not permitted in Verilog.  Please look for any stray semicolons.
+# End time: 05:23:00 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:53 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# -- Compiling module fpga_tb
+# 
+# Top level modules:
+# 	fpga_tb
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v 
+# -- Compiling module fpga
+# 
+# Top level modules:
+# 	fpga
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v 
+# -- Compiling module button_handler
+# 
+# Top level modules:
+# 	button_handler
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v 
+# -- Compiling module arithmetic_logic_unit
+# 
+# Top level modules:
+# 	arithmetic_logic_unit
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v 
+# -- Compiling module lcd_controller
+# 
+# Top level modules:
+# 	lcd_controller
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:23:54 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v 
+# -- Compiling module control_unit
+# 
+# Top level modules:
+# 	control_unit
+# End time: 05:23:54 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.fpga_tb
+# vsim work.fpga_tb 
+# Start time: 05:24:18 on Jun 06,2026
+# Loading work.fpga_tb
+# Loading work.fpga
+# Loading work.button_handler
+# Loading work.cpu
+# Loading work.control_unit
+# Loading work.memory
+# Loading work.arithmetic_logic_unit
+# Loading work.lcd_controller
+# ** Error: (vsim-3063) Port 'rst' not found in the connected module (2nd connection).
+#    Time: 0 ps  Iteration: 0  Instance: /fpga_tb/dut File: /home/loki0b/eecs/projects/control-unit/fpga_tb.v Line: 18
+# ** Error: (vsim-3063) Port 'send' not found in the connected module (3rd connection).
+#    Time: 0 ps  Iteration: 0  Instance: /fpga_tb/dut File: /home/loki0b/eecs/projects/control-unit/fpga_tb.v Line: 18
+# Error loading design
+# End time: 05:24:19 on Jun 06,2026, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:26:51 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# -- Compiling module fpga_tb
+# 
+# Top level modules:
+# 	fpga_tb
+# End time: 05:26:51 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.fpga_tb
+# vsim work.fpga_tb 
+# Start time: 05:26:59 on Jun 06,2026
+# Loading work.fpga_tb
+# Loading work.fpga
+# Loading work.button_handler
+# Loading work.cpu
+# Loading work.control_unit
+# Loading work.memory
+# Loading work.arithmetic_logic_unit
+# Loading work.lcd_controller
+add wave -position insertpoint  \
+sim:/fpga_tb/clk \
+sim:/fpga_tb/btn_rst \
+sim:/fpga_tb/btn_send \
+sim:/fpga_tb/switch_bus \
+sim:/fpga_tb/lcd_dados \
+sim:/fpga_tb/lcd_rs \
+sim:/fpga_tb/lcd_rw \
+sim:/fpga_tb/lcd_en
+add wave -position insertpoint  \
+sim:/fpga_tb/dut/cpu0/LOAD \
+sim:/fpga_tb/dut/cpu0/ADD \
+sim:/fpga_tb/dut/cpu0/ADDI \
+sim:/fpga_tb/dut/cpu0/SUB \
+sim:/fpga_tb/dut/cpu0/SUBI \
+sim:/fpga_tb/dut/cpu0/MUL \
+sim:/fpga_tb/dut/cpu0/CLEAR \
+sim:/fpga_tb/dut/cpu0/DISPLAY \
+sim:/fpga_tb/dut/cpu0/clk \
+sim:/fpga_tb/dut/cpu0/rst \
+sim:/fpga_tb/dut/cpu0/send \
+sim:/fpga_tb/dut/cpu0/switch_bus \
+sim:/fpga_tb/dut/cpu0/lcd \
+sim:/fpga_tb/dut/cpu0/opcode \
+sim:/fpga_tb/dut/cpu0/dst \
+sim:/fpga_tb/dut/cpu0/out \
+sim:/fpga_tb/dut/cpu0/clear \
+sim:/fpga_tb/dut/cpu0/write_enable \
+sim:/fpga_tb/dut/cpu0/read_enable \
+sim:/fpga_tb/dut/cpu0/alu_enable \
+sim:/fpga_tb/dut/cpu0/lcd_enable \
+sim:/fpga_tb/dut/cpu0/alu_imm \
+sim:/fpga_tb/dut/cpu0/mem_imm \
+sim:/fpga_tb/dut/cpu0/src0 \
+sim:/fpga_tb/dut/cpu0/src1 \
+sim:/fpga_tb/dut/cpu0/imm \
+sim:/fpga_tb/dut/cpu0/mem_data_in \
+sim:/fpga_tb/dut/cpu0/mem_data_out \
+sim:/fpga_tb/dut/cpu0/read_data0 \
+sim:/fpga_tb/dut/cpu0/read_data1 \
+sim:/fpga_tb/dut/cpu0/alu_data_in \
+sim:/fpga_tb/dut/cpu0/alu_data_out \
+sim:/fpga_tb/dut/cpu0/alu_opcode
+add wave -position insertpoint  \
+sim:/fpga_tb/dut/cpu0/cu0/state
+run -all
+# Simulacao concluida com sucesso!
+# ** Note: $stop    : /home/loki0b/eecs/projects/control-unit/fpga_tb.v(75)
+#    Time: 12900 ns  Iteration: 0  Instance: /fpga_tb
+# Break in Module fpga_tb at /home/loki0b/eecs/projects/control-unit/fpga_tb.v line 75
+restart -f
+run -all
+# Simulacao concluida com sucesso!
+# ** Note: $stop    : /home/loki0b/eecs/projects/control-unit/fpga_tb.v(75)
+#    Time: 12900 ns  Iteration: 0  Instance: /fpga_tb
+# Break in Module fpga_tb at /home/loki0b/eecs/projects/control-unit/fpga_tb.v line 75
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:32 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/control_unit.v 
+# -- Compiling module control_unit
+# 
+# Top level modules:
+# 	control_unit
+# End time: 05:48:32 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:32 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v 
+# -- Compiling module button_handler
+# 
+# Top level modules:
+# 	button_handler
+# End time: 05:48:32 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:32 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:33 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga.v 
+# -- Compiling module fpga
+# 
+# Top level modules:
+# 	fpga
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:33 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# -- Compiling module fpga_tb
+# 
+# Top level modules:
+# 	fpga_tb
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:33 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v 
+# -- Compiling module arithmetic_logic_unit
+# 
+# Top level modules:
+# 	arithmetic_logic_unit
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:33 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/lcd_controller.v 
+# -- Compiling module lcd_controller
+# 
+# Top level modules:
+# 	lcd_controller
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:48:33 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 05:48:33 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.fpga_tb
+# Loading work.fpga
+# Loading work.button_handler
+# Loading work.cpu
+# Loading work.control_unit
+# Loading work.memory
+# Loading work.arithmetic_logic_unit
+# Loading work.lcd_controller
+run -all
+# Simulacao concluida com sucesso!
+# ** Note: $stop    : /home/loki0b/eecs/projects/control-unit/fpga_tb.v(75)
+#    Time: 12900 ns  Iteration: 0  Instance: /fpga_tb
+# Break in Module fpga_tb at /home/loki0b/eecs/projects/control-unit/fpga_tb.v line 75
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:52:07 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# ** Error: (vlog-13069) /home/loki0b/eecs/projects/control-unit/fpga_tb.v(2): near "#": syntax error, unexpected '#', expecting class.
+# End time: 05:52:07 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:54:10 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/button_handler.v 
+# -- Compiling module button_handler
+# 
+# Top level modules:
+# 	button_handler
+# End time: 05:54:10 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 05:54:10 on Jun 06,2026
+# vlog -reportprogress 300 -work work /home/loki0b/eecs/projects/control-unit/fpga_tb.v 
+# -- Compiling module fpga_tb
+# 
+# Top level modules:
+# 	fpga_tb
+# End time: 05:54:10 on Jun 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.fpga_tb
+# Loading work.button_handler
+run -all
+# Simulacao concluida com sucesso!
+# ** Note: $stop    : /home/loki0b/eecs/projects/control-unit/fpga_tb.v(60)
+#    Time: 15300 ns  Iteration: 0  Instance: /fpga_tb
+# Break in Module fpga_tb at /home/loki0b/eecs/projects/control-unit/fpga_tb.v line 60
+# End time: 07:36:08 on Jun 06,2026, Elapsed time: 2:09:09
+# Errors: 0, Warnings: 0

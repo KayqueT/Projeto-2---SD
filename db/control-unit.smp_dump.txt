@@ -1,0 +1,37 @@
+
+State Machine - |mini_cpu_fpga|lcd_controller:lcd_ctl0|lcd_driver:driver|return_state
+Name return_state.S_WRITE_L2 return_state.S_POS_L2 return_state.S_WRITE_L1 return_state.S_IDLE return_state.S_INIT_CMD 
+return_state.S_INIT_CMD 0 0 0 0 0 
+return_state.S_IDLE 0 0 0 1 1 
+return_state.S_WRITE_L1 0 0 1 0 1 
+return_state.S_POS_L2 0 1 0 0 1 
+return_state.S_WRITE_L2 1 0 0 0 1 
+
+State Machine - |mini_cpu_fpga|lcd_controller:lcd_ctl0|lcd_driver:driver|state
+Name state.S_PULSE state.S_WRITE_L2 state.S_POS_L2 state.S_WRITE_L1 state.S_POS_L1 state.S_IDLE state.S_INIT_CMD state.S_INIT_WAIT state.S_PULSE_WAIT 
+state.S_INIT_WAIT 0 0 0 0 0 0 0 0 0 
+state.S_INIT_CMD 0 0 0 0 0 0 1 1 0 
+state.S_IDLE 0 0 0 0 0 1 0 1 0 
+state.S_POS_L1 0 0 0 0 1 0 0 1 0 
+state.S_WRITE_L1 0 0 0 1 0 0 0 1 0 
+state.S_POS_L2 0 0 1 0 0 0 0 1 0 
+state.S_WRITE_L2 0 1 0 0 0 0 0 1 0 
+state.S_PULSE 1 0 0 0 0 0 0 1 0 
+state.S_PULSE_WAIT 0 0 0 0 0 0 0 1 1 
+
+State Machine - |mini_cpu_fpga|lcd_controller:lcd_ctl0|lcd_formatter:formatter|state
+Name state.IDLE state.SEND state.LATCH 
+state.IDLE 0 0 0 
+state.LATCH 1 0 1 
+state.SEND 1 1 0 
+
+State Machine - |mini_cpu_fpga|cpu:cpu0|control_unit:cu0|state
+Name state.STORE state.EXECUTE state.READ state.DECODE state.FETCH state.IDLE state.INIT state.OFF 
+state.OFF 0 0 0 0 0 0 0 0 
+state.INIT 0 0 0 0 0 0 1 1 
+state.IDLE 0 0 0 0 0 1 0 1 
+state.FETCH 0 0 0 0 1 0 0 1 
+state.DECODE 0 0 0 1 0 0 0 1 
+state.READ 0 0 1 0 0 0 0 1 
+state.EXECUTE 0 1 0 0 0 0 0 1 
+state.STORE 1 0 0 0 0 0 0 1 

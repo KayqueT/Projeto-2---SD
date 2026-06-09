@@ -1,4 +1,12 @@
-`include "def.vh"
+`define IMM 5:0
+`define SGN 6
+`define OPCODE 17:15
+`define DST 14:11
+
+`define IMM_SRC0 10:7
+
+`define REG_SRC0 10:7
+`define REG_SRC1 6:3
 
 module control_unit (
     input wire                  clk,
@@ -11,7 +19,7 @@ module control_unit (
     output reg         write_enable,
     output reg          read_enable,
     output reg           alu_enable,
-    output reg           lcd_enable, // Tells the lcd when it can operate or not
+    output reg           lcd_enable, // lcd update signal
     output reg              alu_imm, // ALU operation with imm
     output reg              mem_imm, // Mem operation with imm
 
@@ -28,7 +36,7 @@ module control_unit (
         input [5:0] imm;
         begin
             if (signal) // Negative number
-                signal_extension = {10'b1111111111, imm};
+                signal_extension = ~{10'b0000000000, imm} + 16'd1;
             else // Positive number
                 signal_extension = {10'b0000000000, imm};
         end
@@ -65,60 +73,60 @@ module control_unit (
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 0;
             end
             
             INIT: begin
                 write_enable = 1;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 1;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
             end
 
             IDLE: begin
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
             end
 
             FETCH: begin
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
             end
 
             DECODE: begin
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
             end
 
             READ: begin
                 write_enable = 0;
                 read_enable  = 1;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
             end
 
             // Execution depends on the instruction
@@ -126,10 +134,10 @@ module control_unit (
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 0;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
 
                 if (opcode == CLEAR) clear_mem = 1;
                 else if (opcode != LOAD) begin 
@@ -150,10 +158,13 @@ module control_unit (
                 write_enable = 0;
                 read_enable  = 0;
                 alu_enable   = 0;
+                lcd_enable   = 1;
                 clear_mem    = 0;
                 alu_imm      = 0;
                 mem_imm      = 0;
-                lcd_enable   = 1;
+
+                if (opcode == ADDI || opcode == SUBI || opcode == MUL) alu_imm = 1;
+                else alu_imm = 0;
 
                 if (opcode != CLEAR && opcode != DISPLAY) write_enable = 1;
                 
@@ -198,37 +209,38 @@ module control_unit (
                 end
 
                 DECODE: begin
-                    if (instruction[`IMM_OPCODE] == ADDI ||
-                        instruction[`IMM_OPCODE] == SUBI ||
-                        instruction[`IMM_OPCODE] == MUL)
+                    if (instruction[`OPCODE] == ADDI ||
+                        instruction[`OPCODE] == SUBI ||
+                        instruction[`OPCODE] == MUL)
                     begin                    
-                        opcode <= instruction[`IMM_OPCODE];
-                        dst    <= instruction[`IMM_DST];
+                        opcode <= instruction[`OPCODE];
+                        dst    <= instruction[`DST];
                         src0   <= instruction[`IMM_SRC0];
                         imm    <= signal_extension(instruction[`SGN], instruction[`IMM]);
                     end 
 
-                    else if (instruction[`REG_OPCODE] == ADD ||
-                            instruction[`REG_OPCODE] == SUB)
+                    else if (instruction[`OPCODE] == ADD ||
+                            instruction[`OPCODE] == SUB)
                     begin
-                        opcode <= instruction[`REG_OPCODE];
-                        dst    <= instruction[`REG_DST];
+                        opcode <= instruction[`OPCODE];
+                        dst    <= instruction[`DST];
                         src0   <= instruction[`REG_SRC0];
                         src1   <= instruction[`REG_SRC1];
                     end
 
-                    else if (instruction[`LOAD_OPCODE] == LOAD)
+                    else if (instruction[`OPCODE] == LOAD)
                     begin
-                        opcode <= instruction[`LOAD_OPCODE];
-                        dst    <= instruction[`LOAD_DST];
+                        opcode <= instruction[`OPCODE];
+                        dst    <= instruction[`DST];
                         imm    <= signal_extension(instruction[`SGN], instruction[`IMM]);
                     end
 
-                    else if (instruction[`OUT_OPCODE] == CLEAR ||
-                            instruction[`OUT_OPCODE] == DISPLAY)
+                    else if (instruction[`OPCODE] == CLEAR ||
+                            instruction[`OPCODE] == DISPLAY)
                     begin
-                        opcode <= instruction[`OUT_OPCODE];
-                        src0   <= instruction[`OUT_SRC0];
+                        opcode <= instruction[`OPCODE];
+                        src0   <= instruction[`DST];
+                        dst    <= instruction[`DST];
                     end
 
                     state <= READ;

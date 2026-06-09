@@ -17,7 +17,7 @@ module memory (
         REG_SIZE = 16;
 
     reg [REG_SIZE-1:0] ram [0:NUM_REG-1];
-    integer i;
+    integer i = 0;
 
     // Sync read and write
     always @(posedge clk) begin

@@ -1,0 +1,195 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/loki0b/eecs/projects/control-unit/simulation/questa
+varithmetic_logic_unit
+Z1 !s110 1780735713
+!i10b 1
+!s100 >m`AZnGjj<QNio1ZQ77N63
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IB3:Z062H6=<feGiM5kjgc0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1780724447
+8/home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v
+F/home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v
+!i122 25
+L0 1 23
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1780735713.000000
+!s107 /home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/arithmetic_logic_unit.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vbutton_handler
+Z8 !s110 1780736050
+!i10b 1
+!s100 ^ZIFgYe:D1LD[RPM[TIV@3
+R2
+Ij4lC]@JlJBIi<gPZzDS^b0
+R3
+R0
+w1780736038
+8/home/loki0b/eecs/projects/control-unit/button_handler.v
+F/home/loki0b/eecs/projects/control-unit/button_handler.v
+!i122 28
+L0 1 37
+R4
+r1
+!s85 0
+31
+Z9 !s108 1780736050.000000
+!s107 /home/loki0b/eecs/projects/control-unit/button_handler.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/button_handler.v|
+!i113 1
+R6
+R7
+vcontrol_unit
+!s110 1780735712
+!i10b 1
+!s100 AEUFjzk<X;SfMBadHCOih3
+R2
+I^BhoGiD?JX1oL4[z`YB7l1
+R3
+R0
+w1780734225
+8/home/loki0b/eecs/projects/control-unit/control_unit.v
+F/home/loki0b/eecs/projects/control-unit/control_unit.v
+!i122 20
+L0 19 249
+R4
+r1
+!s85 0
+31
+Z10 !s108 1780735712.000000
+!s107 /home/loki0b/eecs/projects/control-unit/control_unit.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/control_unit.v|
+!i113 1
+R6
+R7
+vcpu
+R1
+!i10b 1
+!s100 ?C32:ggo42A9d7D`=;MQZ0
+R2
+ImcUHcmjHlXW>CUBlamPHc2
+R3
+R0
+w1780725420
+8/home/loki0b/eecs/projects/control-unit/cpu.v
+F/home/loki0b/eecs/projects/control-unit/cpu.v
+!i122 22
+L0 1 133
+R4
+r1
+!s85 0
+31
+R10
+!s107 /home/loki0b/eecs/projects/control-unit/cpu.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/cpu.v|
+!i113 1
+R6
+R7
+vfpga
+R1
+!i10b 1
+!s100 5OoCoz@W<jXN`RI2ZPc1k0
+R2
+IMa?9iz?olZKM8ZBa`M?U52
+R3
+R0
+w1780731170
+8/home/loki0b/eecs/projects/control-unit/fpga.v
+F/home/loki0b/eecs/projects/control-unit/fpga.v
+!i122 23
+L0 1 58
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/loki0b/eecs/projects/control-unit/fpga.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/fpga.v|
+!i113 1
+R6
+R7
+vfpga_tb
+R8
+!i10b 1
+!s100 n`b`LX8RK:Yj_5Ac6M^kA1
+R2
+I_eE;eCoI]oeSgdTSiVn@z3
+R3
+R0
+w1780736021
+8/home/loki0b/eecs/projects/control-unit/fpga_tb.v
+F/home/loki0b/eecs/projects/control-unit/fpga_tb.v
+!i122 29
+L0 3 61
+R4
+r1
+!s85 0
+31
+R9
+!s107 /home/loki0b/eecs/projects/control-unit/fpga_tb.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/fpga_tb.v|
+!i113 1
+R6
+R7
+vlcd_controller
+R1
+!i10b 1
+!s100 @OKK[Io]m6dg<i>Dmjbjc0
+R2
+I]UBHV7kRS`h<bNzF25SeI2
+R3
+R0
+w1780732702
+8/home/loki0b/eecs/projects/control-unit/lcd_controller.v
+F/home/loki0b/eecs/projects/control-unit/lcd_controller.v
+!i122 26
+L0 1 214
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/loki0b/eecs/projects/control-unit/lcd_controller.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/lcd_controller.v|
+!i113 1
+R6
+R7
+vmemory
+R1
+!i10b 1
+!s100 >WFF@7Y91jDOY0l;YBaoS1
+R2
+IL9RcH1GT8;T9[=9beg2790
+R3
+R0
+w1780724139
+8/home/loki0b/eecs/projects/control-unit/memory.v
+F/home/loki0b/eecs/projects/control-unit/memory.v
+!i122 27
+L0 1 40
+R4
+r1
+!s85 0
+31
+R5
+!s107 /home/loki0b/eecs/projects/control-unit/memory.v|
+!s90 -reportprogress|300|-work|work|/home/loki0b/eecs/projects/control-unit/memory.v|
+!i113 1
+R6
+R7

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Jun  8 16:56:56 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : fpga
+Top-level Entity Name : mini_cpu_fpga
+Family : Cyclone IV E
+Total logic elements : 1,260
+    Total combinational functions : 1,009
+    Dedicated logic registers : 483
+Total registers : 483
+Total pins : 32
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 2
+Total PLLs : 0

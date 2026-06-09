@@ -1,0 +1,94 @@
+set_global_assignment -name TOP_LEVEL_ENTITY mini_cpu_fpga
+#============================================================
+# Device and Family Settings
+#============================================================
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+
+#============================================================
+# Clock (CLOCK_50)
+#============================================================
+set_location_assignment PIN_Y2 -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+
+#============================================================
+# Push Buttons (KEYS)
+#============================================================
+set_location_assignment PIN_R24 -to btn_rst
+set_instance_assignment -name IO_STANDARD "2.5 V" -to btn_rst
+
+set_location_assignment PIN_N21 -to btn_send
+set_instance_assignment -name IO_STANDARD "2.5 V" -to btn_send
+
+#============================================================
+# Slide Switches (SW[17:0])
+#============================================================
+set_location_assignment PIN_AB28 -to switch_bus[0]
+set_location_assignment PIN_AC28 -to switch_bus[1]
+set_location_assignment PIN_AC27 -to switch_bus[2]
+set_location_assignment PIN_AD27 -to switch_bus[3]
+set_location_assignment PIN_AB27 -to switch_bus[4]
+set_location_assignment PIN_AC26 -to switch_bus[5]
+set_location_assignment PIN_AD26 -to switch_bus[6]
+set_location_assignment PIN_AB26 -to switch_bus[7]
+set_location_assignment PIN_AC25 -to switch_bus[8]
+set_location_assignment PIN_AB25 -to switch_bus[9]
+set_location_assignment PIN_AC24 -to switch_bus[10]
+set_location_assignment PIN_AB24 -to switch_bus[11]
+set_location_assignment PIN_AB23 -to switch_bus[12]
+set_location_assignment PIN_AA24 -to switch_bus[13]
+set_location_assignment PIN_AA23 -to switch_bus[14]
+set_location_assignment PIN_AA22 -to switch_bus[15]
+set_location_assignment PIN_Y24 -to switch_bus[16]
+set_location_assignment PIN_Y23 -to switch_bus[17]
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[7]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[8]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[9]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[10]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[11]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[12]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[13]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[14]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[15]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[16]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to switch_bus[17]
+
+#============================================================
+# LCD Module (16x2 Module)
+#============================================================
+set_location_assignment PIN_L3 -to lcd_data[0]
+set_location_assignment PIN_L1 -to lcd_data[1]
+set_location_assignment PIN_L2 -to lcd_data[2]
+set_location_assignment PIN_K7 -to lcd_data[3]
+set_location_assignment PIN_K1 -to lcd_data[4]
+set_location_assignment PIN_K2 -to lcd_data[5]
+set_location_assignment PIN_M3 -to lcd_data[6]
+set_location_assignment PIN_M5 -to lcd_data[7]
+
+set_location_assignment PIN_M2 -to lcd_rs
+set_location_assignment PIN_M1 -to lcd_rw
+set_location_assignment PIN_L4 -to lcd_en
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_data[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_rs
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_rw
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lcd_en
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -4,7 +4,7 @@ module cpu (
     input wire                 send,
     input wire [17:0]    switch_bus,
 
-    output wire                 lcd,
+    output wire          lcd_enable,
 
     output wire  [2:0]       opcode,
     output wire  [3:0]          dst,
@@ -30,7 +30,6 @@ module cpu (
     wire write_enable;
     wire read_enable;
     wire alu_enable;
-    wire lcd_enable;
     wire alu_imm;
     wire mem_imm;
     
@@ -56,8 +55,6 @@ module cpu (
     
     assign mem_data_in = (mem_imm) ? imm : alu_data_out; // Verify if the data comes from ALU or imm
     assign alu_data_in = (alu_imm) ? imm : read_data1; // Verify if the data comes from reg or imm
-
-    assign lcd = lcd_enable;
 
     always @(*) begin
         alu_opcode = 0;
